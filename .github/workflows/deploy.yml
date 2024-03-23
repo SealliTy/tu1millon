@@ -17,8 +17,8 @@ jobs:
         with:
           node-version: "20"
 
-      - name: Print Node.js version
-        run: node --version
+      - name: Print git version
+        run: git --version
 
       - name: Install dependencies
         run: yarn install
