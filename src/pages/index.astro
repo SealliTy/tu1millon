@@ -1,0 +1,50 @@
+---
+import { Image } from 'astro:assets';
+import Layout from '../layouts/Layout.astro';
+import { HomeCard } from '@/components/Card';
+import BackgroundUniverse from '@/images/background-universe.jpeg';
+import Logo from '@/images/logo-tu1millon.png';
+import { MasterClassIcon } from '@/images/icons/masterclass';
+import { Tu1millon } from '@/images/icons/tu1millon';
+import { Academic } from '@/images/icons/academic';
+
+const cardsInfo = [
+	{
+		title: 'Masterclass Gratuita',
+		description: '¡Prepárate para tranformar tu vida de una vez por todas! Este no es otro video de ventas. Te voy a guiar paso a paso para que comiences a <b>GANAR</b>. Te aseguro que, después de eso, ni siquiera querrás mirar a tus <b>AMIGOS</b> perdedores. ¡Es hora de tomar acción y conquitar tus metas!',
+		icon: MasterClassIcon({ styles: "text-white xsm:w-5 xsm:h-5 md:w-7 md:h-7 xl:w-10 xl:h-10" })
+	},
+	{
+		title: 'Escuela Tu1millon',
+		description: '¡Únete para recibir coaching en vivo con el jefazo <b>LLADOS</b> y transformate en la mejor versión de ti mismo! Aprende a cambiar vidas con <b>Marketing de Afiliados</b> desde tu móvil y sin experiencia previa. ¡Escapa del sistema y alcanza el éxito hoy mismo!',
+		icon: Academic({ styles: "text-white xsm:w-5 xsm:h-5 md:w-7 md:h-7 xl:w-10 xl:h-10" })
+	},
+	{
+		title: 'Sala Tu1millon',
+		description: '¡Domina el arte del <b>Coaching Online</b> con la formación del jefazo <b>LLADOS</b>! Aprende de su éxito sin igual y prepárate para cambiar tu vida. ¡Únete al club y sigue sus pasos para comenzar a <b>GANAR</b>!',
+		icon: Tu1millon({ styles: "text-white xsm:w-5 xsm:h-5 md:w-7 md:h-7 xl:w-10 xl:h-10" })
+	},
+]
+---
+
+<Layout title="Home - Tu1millon">
+	<main class="overflow-auto h-screen">
+		<div class="w-full h-screen absolute top-0 left-0 -z-10">
+			<Image src={BackgroundUniverse} alt="Background universe" class="w-full h-screen object-cover object-center" />
+		</div>
+		<div class="w-full flex justify-center pt-5 xl:pt-3">
+			<Image src={Logo} alt="Logo tu1millon" />
+		</div>
+		<div class="flex mb-20 p-5 w-full xsm:flex-col xsm:gap-5">
+			<div class="flex gap-5 flex-wrap justify-center">
+				{cardsInfo.map((card) => (
+					<HomeCard {...card} />
+				))}
+			</div>
+			<div class="flex justify-center items-center xsm:flex-col xsm:gap-3 md:mt-10">
+				<button class="bg-indigo-500 rounded text-white font-bold px-3 py-1 hover:bg-indigo-700 xsm:w-full md:w-2/5 xl:w-1/4 xl:text-3xl xl:py-2">Login</button>
+				<p class="text-white font-bold text-center underline hover:scale-110 cursor-pointer xl:text-2xl">Millon supps</p>
+			</div>
+		</div>
+	</main>
+</Layout>
