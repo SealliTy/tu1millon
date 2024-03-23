@@ -5,4 +5,8 @@ import react from "@astrojs/react";
 // https://astro.build/config
 export default defineConfig({
   integrations: [tailwindIntegration(), react()],
+  site: "https://seallity.gitlab.io",
+  base: "/tu1millon",
+  outDir: "public",
+  publicDir: "static",
 });
