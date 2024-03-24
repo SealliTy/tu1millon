@@ -6,7 +6,4 @@ import react from "@astrojs/react";
 export default defineConfig({
   integrations: [tailwindIntegration(), react()],
   site: "https://seallity.gitlab.io",
-  base: "/tu1millon",
-  outDir: "public",
-  publicDir: "static",
 });
