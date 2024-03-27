@@ -7,4 +7,8 @@ export default defineConfig({
   integrations: [react(), tailwind()],
   site: "https://seallity.gitlab.io",
   base: "tu1millon",
+  // server: {
+  //   host: "0.0.0.0",
+  //   port: 3000,
+  // },
 });

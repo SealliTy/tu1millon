@@ -32,8 +32,8 @@ const cardsInfo = [
 		<div class="w-full h-screen absolute top-0 left-0 -z-10">
 			<Image src={BackgroundUniverse} alt="Background universe" class="w-full h-screen object-cover object-center" />
 		</div>
-		<div class="w-full flex justify-center pt-5 xl:pt-3">
-			<Image src={Logo} alt="Logo tu1millon" />
+		<div class="w-full flex justify-center pt-5 xl:pt-3 xl:h-44">
+			<Image src={Logo} alt="Logo tu1millon" class="w-full h-full object-contain" />
 		</div>
 		<div class="flex mb-20 p-5 w-full xsm:flex-col xsm:gap-5">
 			<div class="flex gap-5 flex-wrap justify-center">
@@ -43,7 +43,9 @@ const cardsInfo = [
 			</div>
 			<div class="flex justify-center items-center xsm:flex-col xsm:gap-3 md:mt-10">
 				<button class="bg-indigo-500 rounded text-white font-bold px-3 py-1 hover:bg-indigo-700 xsm:w-full md:w-2/5 xl:w-1/4 xl:text-3xl xl:py-2">Login</button>
-				<p class="text-white font-bold text-center underline hover:scale-110 cursor-pointer xl:text-2xl">Millon supps</p>
+				<a href="https://millionsupps.com/" target="_blank">
+					<p class="text-white font-bold text-center underline hover:scale-110 cursor-pointer xl:text-2xl">Millon supps</p>
+				</a>
 			</div>
 		</div>
 	</main>
