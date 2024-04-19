@@ -1,0 +1,185 @@
+---
+import { Image } from "astro:assets";
+import LogoTu1millon from "@/images/logo-tu1millon.png";
+
+const baseUrl = import.meta.env.BASE_URL;
+---
+
+<header id="header" class="relative bg-indigo-600 lg:pb-0">
+  <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+    <!-- lg+ -->
+    <nav class="flex items-center justify-between h-16 lg:h-20">
+      <div class="flex-shrink-0">
+        <a href={baseUrl} title="tu1millon">
+          <Image
+            class="w-auto h-8 lg:h-10"
+            src={LogoTu1millon}
+            alt="Logo tu1millon"
+          />
+        </a>
+      </div>
+
+      <button
+        id="button_menu"
+        type="button"
+        class="inline-flex p-2 text-white transition-all duration-200 rounded-md lg:hidden focus:text-black focus:bg-indigo-200 hover:text-black hover:bg-indigo-200"
+      >
+        <!-- Menu open: "hidden", Menu closed: "block" -->
+        <svg
+          class="block w-6 h-6"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 8h16M4 16h16"></path>
+        </svg>
+
+        <!-- Menu open: "block", Menu closed: "hidden" -->
+        <svg
+          class="hidden w-6 h-6"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+
+      <div class="hidden lg:flex lg:items-center lg:ml-auto lg:space-x-10">
+        <a
+          href={`${baseUrl}/masterclass`}
+          title="Masterclass"
+          class="text-base font-semibold text-white px-1 py-1 hover:text-yellow-300 hover:border-b hover:border-yellow-300 hover:scale-110"
+        >
+          Masterclass
+        </a>
+
+        <a
+          href={`${baseUrl}/millonroom`}
+          title="Sala tu1millon"
+          class="text-base font-semibold text-white px-1 py-1 hover:text-yellow-300 hover:border-b hover:border-yellow-300 hover:scale-110"
+        >
+          Sala Tu1millon
+        </a>
+
+        <a
+          href={`${baseUrl}/mentoring`}
+          title="Mentorias"
+          class="text-base font-semibold text-white px-1 py-1 hover:text-yellow-300 hover:border-b hover:border-yellow-300 hover:scale-110"
+        >
+          Mentorias
+        </a>
+
+        <a
+          href={`${baseUrl}/events`}
+          title="Eventos"
+          class="text-base font-semibold text-white px-1 py-1 hover:text-yellow-300 hover:border-b hover:border-yellow-300 hover:scale-110"
+        >
+          Eventos
+        </a>
+
+        <a
+          href={`${baseUrl}/history`}
+          title="Historia llados"
+          class="text-base font-semibold text-white px-1 py-1 hover:text-yellow-300 hover:border-b hover:border-yellow-300 hover:scale-110"
+        >
+          Mi historia
+        </a>
+
+        <button
+          id="login"
+          class="text-base font-semibold text-white px-1 py-1 hover:text-yellow-300 hover:border-b hover:border-yellow-300 hover:scale-110"
+        >
+          Login
+        </button>
+      </div>
+    </nav>
+
+    <!-- xs to lg -->
+    <nav id="nav_mobile" class="pt-4 pb-6 rounded-md hidden">
+      <div class="flow-root">
+        <div class="flex flex-col px-6 -my-2 space-y-1">
+          <a
+            href={`${baseUrl}/masterclass`}
+            title="Masterclass"
+            class="inline-flex p-2 text-base font-medium text-white transition-all duration-200 hover:text-yellow-300 focus:text-yellow-300"
+          >
+            Masterclass
+          </a>
+
+          <a
+            href={`${baseUrl}/millonroom`}
+            title="Sala tu1millon"
+            class="inline-flex p-2 text-base font-medium text-white transition-all duration-200 hover:text-yellow-300 focus:text-yellow-300"
+          >
+            Sala Tu1millon
+          </a>
+
+          <a
+            href={`${baseUrl}/mentoring`}
+            title="Mentorias"
+            class="inline-flex p-2 text-base font-medium text-white transition-all duration-200 hover:text-yellow-300 focus:text-yellow-300"
+          >
+            Mentorias
+          </a>
+
+          <a
+            href={`${baseUrl}/events`}
+            title="Eventos"
+            class="inline-flex p-2 text-base font-medium text-white transition-all duration-200 hover:text-yellow-300 focus:text-yellow-300"
+          >
+            Eventos
+          </a>
+          <a
+            href={`${baseUrl}/history`}
+            title="Historia llados"
+            class="inline-flex p-2 text-base font-medium text-white transition-all duration-200 hover:text-yellow-300 focus:text-yellow-300"
+          >
+            Mi historia
+          </a>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const header = document.getElementById("header");
+  const menu = document.getElementById("button_menu");
+  const navMobile = document.getElementById("nav_mobile");
+  const navItems = document.querySelectorAll("header nav a");
+  const pathname = window.location.pathname;
+  const windowWidthSize = window.screen.width;
+
+  menu?.addEventListener("click", () => {
+    if (navMobile?.getAttribute("class")?.includes("hidden")) {
+      header?.classList.add("pb-6");
+      navMobile.classList.add("block");
+      navMobile.classList.remove("hidden");
+    } else {
+      header?.classList.remove("pb-6");
+      navMobile?.classList.add("hidden");
+      navMobile?.classList.remove("block");
+    }
+  });
+
+  navItems.forEach((item) => {
+    const getPath = item.getAttribute("href");
+    if (getPath === pathname) {
+      item.classList.add("text-yellow-300");
+      if (windowWidthSize < 1024) {
+        item.classList.add("bg-indigo-800", "rounded");
+      }
+    }
+  });
+</script>

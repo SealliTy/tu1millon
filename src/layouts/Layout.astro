@@ -1,7 +1,8 @@
 ---
-import { Footer } from "@/components/Footer.jsx"
+import Header from "@/components/Header.astro";
+import { Footer } from "@/components/Footer.tsx";
 interface Props {
-	title: string;
+  title: string;
 }
 
 const { title } = Astro.props;
@@ -9,23 +10,40 @@ const { title } = Astro.props;
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" href="/tu1millon/favicon.png" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-		<slot />
-		<Footer />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" href="/tu1millon/favicon.png" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body class="w-full h-screen">
+    <Header />
+    <slot />
+    <Footer />
+  </body>
 </html>
+
 <style is:global>
-	html, body {
-		margin: 0;
-		padding: 0;
-		box-sizing: border-box;
-	}
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  /* Cambia el ancho y color del scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px; /* Ancho del scrollbar */
+  }
+
+  /* Cambia el color del track (fondo) del scrollbar */
+  ::-webkit-scrollbar-track {
+    background-color: #fff;
+  }
+
+  /* Cambia el color del thumb (la parte móvil del scrollbar) */
+  ::-webkit-scrollbar-thumb {
+    background-color: #616161;
+  }
 </style>
