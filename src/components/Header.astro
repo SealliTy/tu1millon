@@ -5,10 +5,10 @@ import LogoTu1millon from "@/images/logo-tu1millon.png";
 const baseUrl = import.meta.env.BASE_URL;
 ---
 
-<header id="header" class="relative bg-indigo-600 lg:pb-0">
+<header id="header" class="fixed w-full z-50 bg-indigo-600">
   <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
     <!-- lg+ -->
-    <nav class="flex items-center justify-between h-16 lg:h-20">
+    <nav class="flex items-center justify-between h-16">
       <div class="flex-shrink-0">
         <a href={baseUrl} title="tu1millon">
           <Image
@@ -147,6 +147,12 @@ const baseUrl = import.meta.env.BASE_URL;
           >
             Mi historia
           </a>
+          <button
+            id="login"
+            class="inline-flex p-2 text-base font-medium text-white transition-all duration-200 hover:text-yellow-300 focus:text-yellow-300"
+          >
+            Login
+          </button>
         </div>
       </div>
     </nav>
