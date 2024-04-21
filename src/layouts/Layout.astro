@@ -1,6 +1,5 @@
 ---
 import Header from "@/components/Header.astro";
-import { Footer } from "@/components/Footer.tsx";
 interface Props {
   title: string;
 }
@@ -19,9 +18,12 @@ const { title } = Astro.props;
     <title>{title}</title>
   </head>
   <body class="w-full h-screen">
-    <Header />
+    <div class="bg-white w-full h-10 fixed flex items-center justify-center">
+      HEADER
+    </div>
+    <!-- <Header /> -->
     <slot />
-    <Footer />
+    <!-- <Footer /> -->
   </body>
 </html>
 
